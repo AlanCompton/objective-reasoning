@@ -9,7 +9,6 @@ function isAdmin(user){
     }else{
         return false;
     }
-    //return user.userRole === "ADMIN";
 }
 
 // getEmail
@@ -24,26 +23,31 @@ function getPlaylistLength(playlist){
 }
 
 // getHardestHomework
-function getHardestHomework(homeworkArray){
-    let lowestHw = homeworkArray[0];
+function getHardestHomework(anArray){
+    if(anArray.length === 0){
+        return '';
+    }
 
-    for(let i=0; i< homeworkArray.length ;i++){
-        if(homeworkArray[i].averageScore < lowestHw.averageScore){
-            lowestHw = homeworkArray[i];
+    let lowest = anArray[0];
+
+    for(let i = 0; i < anArray.length; i++){
+        if(anArray[i].averageScore < lowest.averageScore){
+            lowest = anArray[i]
         }
     }
-    return lowestHw.name;
+    return lowest.name;
 }
 
 // createPhonebook
-function createPhonebook(names,numbers){
+function createPhonebook(names, numbers) {
     let phonebook = {};
-
-    for(let i=0; i<names.length ;i++){
-        phonebook[names[i]] = numbers[i];
+    for (let i = 0; i < names.length; i++) {
+      let name = names[i];
+      let number = numbers[i];
+      phonebook[name] = number;
     }
     return phonebook;
-}
+  }
 
 // ┌─────────────────────────────────────┐
 // │ Do not modify code below this line. │
